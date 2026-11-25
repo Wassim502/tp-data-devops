@@ -1,6 +1,6 @@
 import pandas as pd
 
-from pipeline import agreger_par_ville, agreger_par_categorie, transformer
+from pipeline import agreger_par_categorie, agreger_par_ville, transformer
 
 
 def donnees_exemple():
@@ -47,8 +47,3 @@ def test_agregation_par_categorie():
     assert resultat.iloc[1]["categorie"] == "Mobilier"
     assert resultat.iloc[1]["montant"] == 150.0
 
-def test_agregation_par_categorie():
-    resultat = agreger_par_categorie(transformer(donnees_exemple()))
-    assert resultat.iloc[0]["categorie"] == "Mobilier"
-    assert resultat.iloc[0]["montant"] == 60.0
-    assert resultat.iloc[1]["montant"] == 20.0
